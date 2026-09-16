@@ -561,7 +561,7 @@ function renderCategories(){
 
 function productCardHTML(p){
   return `<div class="pcard" onclick="openModal('${p.slug}')">
-   <div class="thumb">${p.hot?'<span class="badge-hot">HOT</span>':''}${p.imgs?'<img src="'+p.imgs[0]+'" alt="'+p.name+'" style="width:100%;height:100%;object-fit:contain;border-radius:8px">':'<div class="ph">'+p.name+'</div>'}</div>'<img src="'+p.imgs[0]+'" alt="'+p.name+'" style="width:100%;height:100%;object-fit:contain">':'<div class="ph">'+p.name+'</div>'}</div>
+  <div class="thumb">${p.hot?'<span class="badge-hot">HOT</span>':''}${p.imgs?'<img src="'+p.imgs[0]+'" alt="'+p.name+'" style="width:100%;height:100%;object-fit:contain;padding:8px">':'<div class="ph">'+p.name+'</div>'}</div>
     <div class="body">
       <div class="model">${p.model}</div>
       <h3>${p.name}</h3>
