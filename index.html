@@ -652,14 +652,7 @@ function closeModal(){
   document.body.style.overflow='';
 }
 
-function submitForm(e){
-  e.preventDefault();
-  const btn=e.target.querySelector('button[type=submit]');
-  btn.textContent='Sending...';btn.disabled=true;
-  setTimeout(()=>{
-    e.target.innerHTML='<div style="text-align:center;padding:40px 20px"><div style="width:56px;height:56px;background:var(--brand-soft);color:var(--brand);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 16px">✓</div><h3 style="font-size:18px;margin-bottom:8px">Inquiry Sent</h3><p style="color:var(--muted);font-size:14px">Thank you. Our sales team will reply within 12 working hours.</p><p style="color:var(--muted);font-size:12px;margin-top:16px">(Preview only — form will be connected after deployment)</p></div>';
-  },700);
-}
+
 
 renderCategories();
 renderFeatured();
