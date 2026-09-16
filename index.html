@@ -110,7 +110,7 @@ header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);ba
 .cat-tile:hover .go{opacity:1}
 
 /* Product grid */
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pcard .thumb{aspect-ratio:1/1;background:linear-gradient(160deg,#f2f8f6,#e6f1ed);display:grid;place-items:center;position:relative;overflow:hidden}
 .pcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:.22s;position:relative;cursor:pointer}
 .pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#cfded9}
 .pcard .thumb{aspect-ratio:1/1;background:linear-gradient(160deg,#f2f8f6,#e6f1ed);display:grid;place-items:center;position:relative;overflow:hidden}
@@ -532,7 +532,7 @@ const CATEGORIES=[
 ];
 
 const PRODUCTS=[
-  {slug:'indoor-mosquito-killer-lamp',cat:'mosquito-pest-control',name:'Indoor Mosquito Killer Lamp',model:'EB-DH1',hot:true,desc:'UV-A attraction with 360° coverage, whisper-quiet operation, ideal for bedrooms, kitchens and restaurants.',moq:'1,000 pcs',lead:'25–35 days',certs:['CE','RoHS','FCC'],features:['365nm UV-A light attracts mosquitoes effectively','Physical glue board or electric grid options','Noise level under 25 dB — safe for bedrooms','AC110V 60HZ powered, 20W','Removable tray for easy cleaning'],specs:[['Power','20W'],['Voltage','AC 110V'],['Coverage','40–150 m²'],['Certification','CE, RoHS, FCC']],
+  {slug:'outdoor-mosquito-killer-lamp',cat:'mosquito-pest-control',name:'Outdoor Mosquito Killer Lamp',model:'EB-DH1',hot:true,desc:'UV-A attraction with 360° coverage, whisper-quiet operation, ideal for bedrooms, kitchens and restaurants.',moq:'1,000 pcs',lead:'25–35 days',certs:['CE','RoHS','FCC'],features:['365nm UV-A light attracts mosquitoes effectively','Physical glue board or electric grid options','Noise level under 25 dB — safe for bedrooms','AC110V 60HZ powered, 20W','Removable tray for easy cleaning'],specs:[['Power','20W'],['Voltage','AC 110V'],['Coverage','40–150 m²'],['Certification','CE, RoHS, FCC']],
 imgs:['https://cdn.jsdelivr.net/gh/vincent8696/eachbuy@main/DH1._AC_SL1500_.avif','https://cdn.jsdelivr.net/gh/vincent8696/eachbuy@main/DH1-71%2BUS%2BG6oWL._AC_SL1500_.avif','https://cdn.jsdelivr.net/gh/vincent8696/eachbuy@main/DH1-71PmYiAQhCL._AC_SL1500_.avif','https://cdn.jsdelivr.net/gh/vincent8696/eachbuy@main/DH1-71TkCNUNOML._AC_SL1500_.avif','https://cdn.jsdelivr.net/gh/vincent8696/eachbuy@main/DH1-81VjB6Z-hEL._AC_SL1500_.avif','https://cdn.jsdelivr.net/gh/vincent8696/eachbuy@main/DH1-81czmFj%2B50L._AC_SL1500_.avif']},
   {slug:'outdoor-mosquito-killer',cat:'mosquito-pest-control',name:'Outdoor Mosquito Killer',model:'EB-MK200',hot:true,desc:'IPX4 weatherproof housing with high-voltage grid, designed for patio, garden and camping use.',moq:'1,000 pcs',lead:'25–35 days',certs:['CE','RoHS'],features:['IPX4 waterproof housing for outdoor use','High-voltage grid with safety protection','UV-A lamp life up to 8,000 hours','Detachable collection tray'],specs:[['Power','8W'],['Voltage','AC 100–240V'],['IP Rating','IPX4'],['Coverage','80–120 m²']]},
   {slug:'solar-mosquito-killer',cat:'mosquito-pest-control',name:'Solar Mosquito Killer Lamp',model:'EB-MK300S',hot:true,desc:'Solar charging with built-in lithium battery, zero wiring needed — perfect for gardens and remote areas.',moq:'1,000 pcs',lead:'30–40 days',certs:['CE','RoHS'],features:['Monocrystalline solar panel','Built-in 2000mAh lithium battery','Auto dusk-to-dawn sensor','IP65 waterproof'],specs:[['Solar Panel','5V / 1.5W'],['Battery','3.7V / 2000mAh'],['IP Rating','IP65']]},
@@ -561,7 +561,7 @@ function renderCategories(){
 
 function productCardHTML(p){
   return `<div class="pcard" onclick="openModal('${p.slug}')">
-  <div class="thumb">${p.hot?'<span class="badge-hot">HOT</span>':''}${p.imgs?'<img src="'+p.imgs[0]+'" alt="'+p.name+'" style="width:100%;height:100%;object-fit:contain">':'<div class="ph">'+p.name+'</div>'}
+    <div class="thumb">${p.hot?'<span class="badge-hot">HOT</span>':''}${p.imgs?'<img src="'+p.imgs[0]+'" alt="'+p.name+'" style="max-width:100%;max-height:100%;object-fit:contain">':'<div class="ph">'+p.name+'</div>'}</div>
     <div class="body">
       <div class="model">${p.model}</div>
       <h3>${p.name}</h3>
