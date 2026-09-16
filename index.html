@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eachbuy | Pest Control & Home Comfort Manufacturer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#0e6b5c;--brand-2:#128a74;--brand-dark:#08453b;--brand-soft:#e8f4f1;
+  --accent:#f59e0b;--accent-dark:#d98207;
+  --ink:#10201d;--body:#3d4f4b;--muted:#6e817d;--line:#e2ebe7;
+  --bg:#ffffff;--bg-soft:#f4f9f7;--radius:14px;--radius-sm:10px;
+  --shadow:0 1px 2px rgba(16,32,29,.04),0 8px 24px -12px rgba(16,32,29,.14);
+  --shadow-lg:0 20px 50px -24px rgba(16,32,29,.28);
+  --maxw:1220px;--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);color:var(--body);background:var(--bg);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--brand);text-decoration:none}
+a:hover{color:var(--brand-2)}
+h1,h2,h3,h4{color:var(--ink);line-height:1.25;margin:0 0 .5em;font-weight:700;letter-spacing:-.01em}
+h1{font-size:clamp(2rem,4.4vw,3.4rem)}
+h2{font-size:clamp(1.5rem,2.8vw,2.25rem)}
+h3{font-size:1.125rem}
+p{margin:0 0 1em}
+ul{margin:0 0 1em;padding-left:1.15em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{padding:76px 0}
+.eyebrow{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-2);margin-bottom:12px}
+.center{text-align:center}
+.lead{font-size:1.075rem;color:var(--body)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:999px;font-weight:600;font-size:.95rem;border:1.5px solid transparent;cursor:pointer;transition:.2s;white-space:nowrap;font-family:inherit}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand-dark);color:#fff;transform:translateY(-1px)}
+.btn-accent{background:var(--accent);color:#3a2600}
+.btn-accent:hover{background:var(--accent-dark);color:#fff}
+.btn-outline{border-color:var(--line);color:var(--ink);background:#fff}
+.btn-outline:hover{border-color:var(--brand);color:var(--brand)}
+.btn-light{background:#fff;color:var(--brand)}
+.btn-light:hover{background:var(--brand-soft);color:var(--brand)}
+.btn-sm{padding:9px 18px;font-size:.85rem}
+.btn-block{width:100%}
+
+/* Topbar */
+.topbar{background:var(--brand-dark);color:#cfe6e0;font-size:.83rem}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:38px;flex-wrap:wrap}
+.topbar a{color:#cfe6e0}
+.topbar a:hover{color:#fff}
+.topbar-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+
+/* Header */
+header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--ink);font-size:1.15rem;letter-spacing:-.02em}
+.logo:hover{color:var(--ink)}
+.logo-mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;flex:none}
+.logo-mark span{color:#fff;font-size:14px;font-weight:800}
+.logo small{display:block;font-size:.62rem;font-weight:600;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.menu{display:flex;align-items:center;gap:4px}
+.menu a{padding:9px 14px;border-radius:8px;font-weight:500;font-size:.94rem;color:var(--body);transition:.18s;cursor:pointer}
+.menu a:hover{background:var(--bg-soft);color:var(--brand)}
+.menu a.active{color:var(--brand);font-weight:600}
+.menu a.cta{background:var(--brand);color:#fff;margin-left:8px;padding:9px 20px;border-radius:999px;font-weight:600}
+.menu a.cta:hover{background:var(--brand-dark);color:#fff}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:8px;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);margin:4px 0;border-radius:2px}
+.mobile-menu{display:none;border-top:1px solid var(--line);background:#fff;padding:10px 0}
+.mobile-menu a{display:block;padding:12px 0;color:var(--ink);font-weight:500;border-bottom:1px solid var(--line)}
+.mobile-menu.open{display:block}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#08453b 0%,#0e6b5c 55%,#128a74 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 85% 15%,rgba(245,158,11,.22),transparent 60%),radial-gradient(500px 400px at 10% 90%,rgba(255,255,255,.10),transparent 60%);pointer-events:none}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:84px 24px 92px}
+.hero h1{color:#fff}
+.hero .sub{font-size:1.15rem;color:#c9e3dd;max-width:34em;margin-bottom:28px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:6px 14px;border-radius:999px;font-size:.8rem;font-weight:600;margin-bottom:20px}
+.hero-badge i{width:7px;height:7px;border-radius:50%;background:#4ade80;display:inline-block}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-points{display:flex;gap:28px;margin-top:34px;flex-wrap:wrap}
+.hero-points div{border-left:2px solid rgba(255,255,255,.25);padding-left:14px}
+.hero-points b{display:block;font-size:1.5rem;color:#fff;line-height:1.2}
+.hero-points span{font-size:.82rem;color:#a8ccc4}
+.hero-art{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:22px;backdrop-filter:blur(6px);box-shadow:var(--shadow-lg)}
+.hero-art .art-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.art-box{border-radius:14px;background:#fff;aspect-ratio:1;display:grid;place-items:center;overflow:hidden}
+.art-box .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;text-align:center;padding:10px;color:var(--brand)}
+.art-box .ph.dark{background:linear-gradient(135deg,#0e6b5c,#128a74);color:#fff}
+.art-box .ph.grad{background:linear-gradient(135deg,#f59e0b,#d98207);color:#3a2600}
+.art-box .ph.soft{background:linear-gradient(160deg,#f2f8f6,#e6f1ed);color:var(--brand)}
+
+/* Section head */
+.sec-head{max-width:680px;margin:0 auto 44px;text-align:center}
+.sec-head p{color:var(--muted);margin-bottom:0}
+.gray{background:var(--bg-soft)}
+
+/* Category tiles */
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cat-tile{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;transition:.22s;display:flex;gap:16px;align-items:flex-start;position:relative;overflow:hidden;cursor:pointer}
+.cat-tile:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--brand-2)}
+.cat-tile .ico{width:52px;height:52px;border-radius:13px;background:var(--brand-soft);display:grid;place-items:center;flex:none;font-size:24px}
+.cat-tile h3{margin-bottom:4px;font-size:1.02rem}
+.cat-tile p{font-size:.875rem;color:var(--muted);margin:0}
+.cat-tile .go{position:absolute;right:18px;bottom:16px;color:var(--brand);font-size:.82rem;font-weight:600;opacity:0;transition:.2s}
+.cat-tile:hover .go{opacity:1}
+
+/* Product grid */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:.22s;position:relative;cursor:pointer}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#cfded9}
+.pcard .thumb{aspect-ratio:4/3;background:linear-gradient(160deg,#f2f8f6,#e6f1ed);display:grid;place-items:center;padding:14px;position:relative;overflow:hidden}
+.pcard .thumb .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;text-align:center;color:var(--brand);padding:10px}
+.pcard .body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.pcard .model{font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.pcard h3{font-size:1.02rem;margin:.3em 0 .45em;line-height:1.35}
+.pcard .desc{font-size:.865rem;color:var(--muted);margin-bottom:14px;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pcard .meta{display:flex;gap:8px;flex-wrap:wrap;font-size:.75rem;margin-bottom:14px}
+.chip{background:var(--bg-soft);border:1px solid var(--line);border-radius:6px;padding:3px 9px;color:var(--body);font-weight:500}
+.badge-hot{position:absolute;top:12px;left:12px;background:var(--accent);color:#3a2600;font-size:.68rem;font-weight:800;padding:4px 10px;border-radius:999px;letter-spacing:.06em;z-index:2}
+
+/* Why us */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.why{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px}
+.why .ico{width:46px;height:46px;border-radius:12px;background:var(--brand);display:grid;place-items:center;margin-bottom:16px;font-size:20px}
+.why h3{font-size:1.02rem;margin-bottom:6px}
+.why p{font-size:.885rem;color:var(--muted);margin:0}
+
+/* Stats */
+.stats{background:var(--brand-dark);color:#fff;padding:56px 0}
+.stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stats b{display:block;font-size:2.4rem;color:#fff;line-height:1.1;letter-spacing:-.02em}
+.stats span{font-size:.875rem;color:#9dc4bb}
+
+/* Process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{position:relative;padding-top:14px}
+.step .n{width:38px;height:38px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-weight:800;font-size:.95rem;margin-bottom:14px}
+.step h3{font-size:1rem;margin-bottom:4px}
+.step p{font-size:.875rem;color:var(--muted);margin:0}
+
+/* CTA band */
+.cta-band{background:linear-gradient(120deg,var(--brand),var(--brand-2));color:#fff;padding:64px 0;text-align:center}
+.cta-band h2{color:#fff}
+.cta-band p{color:#c9e3dd;max-width:640px;margin:0 auto 26px}
+
+/* Forms */
+.form-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.85rem;font-weight:600;color:var(--ink);margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:.94rem;font-family:inherit;color:var(--ink);background:#fff;transition:.18s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.field textarea{min-height:120px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.req{color:var(--accent-dark)}
+
+/* FAQ */
+.faq-item{border:1px solid var(--line);border-radius:var(--radius);margin-bottom:12px;background:#fff;overflow:hidden}
+.faq-item summary{padding:18px 22px;cursor:pointer;font-weight:600;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:1rem}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:1.4rem;color:var(--brand);font-weight:400;line-height:1}
+.faq-item[open] summary::after{content:"−"}
+.faq-item .a{padding:0 22px 20px;color:var(--body);font-size:.94rem}
+
+/* Footer */
+footer.site{background:#0a231f;color:#9dbdb6;padding:64px 0 0}
+footer.site h4{color:#fff;font-size:.95rem;margin-bottom:16px}
+footer.site .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:36px;padding-bottom:44px}
+footer.site p{font-size:.9rem;color:#9dbdb6}
+footer.site ul{list-style:none;padding:0;margin:0}
+footer.site ul li{margin-bottom:9px}
+footer.site ul a{color:#9dbdb6;font-size:.9rem;cursor:pointer}
+footer.site ul a:hover{color:#fff}
+footer.site .logo{color:#fff;margin-bottom:16px}
+footer.site .logo small{color:#7ba79e}
+footer.site .logo-mark{background:linear-gradient(135deg,var(--brand-2),#4ade80)}
+.fbottom{border-top:1px solid rgba(255,255,255,.1);padding:18px 0;font-size:.82rem;color:#7ba79e;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.cert-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.cert-list span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:7px 14px;font-size:.85rem;font-weight:600;color:var(--ink)}
+
+/* Product detail modal */
+.modal{position:fixed;inset:0;background:rgba(10,35,31,.7);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal.open{display:flex}
+.modal-box{background:#fff;border-radius:20px;max-width:960px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
+.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(16,32,29,.08);border:none;font-size:20px;cursor:pointer;z-index:10;color:var(--ink)}
+.modal-content{padding:36px}
+.detail{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.gallery{background:linear-gradient(160deg,#f2f8f6,#e6f1ed);border:1px solid var(--line);border-radius:var(--radius);padding:34px;display:grid;place-items:center}
+.gallery .main-ph{aspect-ratio:1;width:100%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--brand);font-size:1.2rem;text-align:center}
+.d-head .model{font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--brand-2);text-transform:uppercase}
+.d-head h2{font-size:1.6rem;margin:.3em 0 .5em}
+.d-head .desc{color:var(--body);font-size:1rem}
+.kv{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:22px 0}
+.kv div{background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;padding:11px 14px}
+.kv span{display:block;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.kv b{font-size:.95rem;color:var(--ink);font-weight:600}
+.d-actions{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 18px}
+.feat-list{list-style:none;padding:0;margin:0 0 8px}
+.feat-list li{position:relative;padding-left:26px;margin-bottom:10px;font-size:.93rem}
+.feat-list li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:14px;border-radius:50%;background:var(--brand-soft)}
+.spec-table{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:10px}
+.spec-table td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
+.spec-table td:first-child{background:var(--bg-soft);width:32%;color:var(--ink);font-weight:600;border-radius:8px 0 0 8px}
+.spec-table tr:last-child td{border-bottom:none}
+
+/* Responsive */
+@media(max-width:1080px){
+  .cat-grid,.pgrid{grid-template-columns:repeat(2,1fr)}
+  .why-grid,.stats .grid,.steps{grid-template-columns:repeat(2,1fr)}
+  footer.site .fgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  .menu{display:none}
+  .burger{display:block}
+  .hero .wrap{grid-template-columns:1fr;padding:56px 24px 64px}
+  .hero-art{max-width:420px}
+  .detail{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .cat-grid,.pgrid,.why-grid,.stats .grid,.steps{grid-template-columns:1fr}
+  footer.site .fgrid{grid-template-columns:1fr}
+  .two{grid-template-columns:1fr}
+  section{padding:56px 0}
+  .hero-points{gap:18px}
+}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap">
+    <div>Pest Control &amp; Home Comfort Manufacturer &nbsp;·&nbsp; Factory direct from China</div>
+    <div class="topbar-links">
+      <a href="mailto:vincent@eachbuydirect.com">vincent@eachbuydirect.com</a>
+      <a href="https://wa.me/8613670113462" target="_blank" rel="noopener">WhatsApp</a>
+      <span>Mon–Sat 09:00–18:00 (GMT+8)</span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="logo" onclick="go('home');return false" href="#">
+        <span class="logo-mark"><span>EB</span></span>
+        <span>EACHBUY<small>Pest Control &amp; Home Comfort</small></span>
+      </a>
+      <div class="menu">
+        <a onclick="go('home')" class="active" id="nav-home">Home</a>
+        <a onclick="go('products')" id="nav-products">Products</a>
+        <a onclick="go('home');scrollTo2('why')" id="nav-about">About</a>
+        <a onclick="go('home');scrollTo2('faq')" id="nav-faq">FAQ</a>
+        <a onclick="go('contact')" id="nav-contact">Contact</a>
+        <a class="cta" onclick="go('contact')">Get a Quote</a>
+      </div>
+      <button class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mm">
+    <div class="wrap"><a onclick="go('home');toggleMenu()">Home</a></div>
+    <div class="wrap"><a onclick="go('products');toggleMenu()">Products</a></div>
+    <div class="wrap"><a onclick="go('home');scrollTo2('why');toggleMenu()">About</a></div>
+    <div class="wrap"><a onclick="go('home');scrollTo2('faq');toggleMenu()">FAQ</a></div>
+    <div class="wrap"><a onclick="go('contact');toggleMenu()">Contact</a></div>
+  </div>
+</header>
+
+<!-- ================= HOME ================= -->
+<main id="page-home">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="hero-badge"><i></i> Factory direct · OEM / ODM · CE RoHS FCC</span>
+      <h1>Your One-Stop Factory for Pest Control &amp; Home Comfort Products</h1>
+      <p class="sub">From UV mosquito killer lamps and solar garden traps to humidifiers, garden hoses and kitchen storage — we help importers, distributors and online sellers build profitable private-label product lines.</p>
+      <div class="hero-actions">
+        <a class="btn btn-accent" onclick="go('products')">Browse Products</a>
+        <a class="btn btn-light" onclick="go('contact')">Request a Quote</a>
+      </div>
+      <div class="hero-points">
+        <div><b>10+</b><span>Years in export business</span></div>
+        <div><b>200+</b><span>Active SKUs in production</span></div>
+        <div><b>40+</b><span>Countries we ship to</span></div>
+        <div><b>300k pcs</b><span>Monthly production capacity</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="art-grid">
+        <div class="art-box"><div class="ph dark">Solar Mosquito<br>Killer Lamp</div></div>
+        <div class="art-box"><div class="ph soft">Indoor UV<br>Mosquito Lamp</div></div>
+        <div class="art-box"><div class="ph soft">Garden<br>Hose Set</div></div>
+        <div class="art-box"><div class="ph grad">Humidifier<br>with Night Light</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Product Range</span>
+      <h2>Nine product lines, one reliable supplier</h2>
+      <p>Consolidate your sourcing: mix pest control, seasonal outdoor, home comfort and household storage goods in a single container and cut your freight cost per unit.</p>
+    </div>
+    <div class="cat-grid" id="cat-grid"></div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="gray">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Best Sellers</span>
+      <h2>Proven sellers in the US and European markets</h2>
+      <p>These models have repeat orders from distributors, garden centres and Amazon sellers. Full specifications, packing data and certifications are available on request.</p>
+    </div>
+    <div class="pgrid" id="feat-grid"></div>
+    <div class="center" style="margin-top:36px">
+      <a class="btn btn-outline" onclick="go('products')">View All Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why Work With Us</span>
+      <h2>Built for buyers who need a dependable long-term factory</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why"><div class="ico">🏭</div><h3>One-Stop Sourcing</h3><p>Nine categories under one roof. Mix mosquito lamps, solar lights, humidifiers, hoses and storage items into one container and deal with a single point of contact.</p></div>
+      <div class="why"><div class="ico">✅</div><h3>Certified for Your Market</h3><p>CE, RoHS, FCC, UKCA as standard. ETL, PSE, REACH, LFGB and FDA testing arranged for specific markets, with full test reports for your compliance files.</p></div>
+      <div class="why"><div class="ico">🎨</div><h3>OEM / ODM &amp; Private Label</h3><p>Logo printing, custom colours, packaging artwork and manuals — free design support. Mould modification and new product development for exclusive models.</p></div>
+      <div class="why"><div class="ico">🚢</div><h3>Export &amp; FBA Ready</h3><p>FBA labelling, poly-bagging and palletising, direct delivery to Amazon or 3PL warehouses. EXW, FOB, CIF and DDP terms all supported.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="grid">
+      <div><b>10+</b><span>Years of export experience</span></div>
+      <div><b>200+</b><span>Active SKUs available</span></div>
+      <div><b>40+</b><span>Countries served</span></div>
+      <div><b>300k</b><span>Pcs monthly capacity</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How We Work</span>
+      <h2>From inquiry to shipment in four clear steps</h2>
+      <p>No guesswork, no surprises. You get a written quotation, a confirmed sample and a photo report before every shipment.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Send Your Inquiry</h3><p>Tell us the models, quantity and target price. We reply within 12 working hours with a detailed quotation.</p></div>
+      <div class="step"><div class="n">2</div><h3>Sample Confirmation</h3><p>Samples shipped in 3–7 days. Sample fee is refunded against your first bulk order.</p></div>
+      <div class="step"><div class="n">3</div><h3>Production &amp; QC</h3><p>100% function and ageing tests on line, AQL 2.5 final inspection, photo and video report before balance payment.</p></div>
+      <div class="step"><div class="n">4</div><h3>Delivery</h3><p>Sea, air, rail or express — to your port, your warehouse, or straight into Amazon FBA.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="gray" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Good to Know</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div style="max-width:780px;margin:0 auto">
+      <details class="faq-item" open>
+        <summary>What is your MOQ and can I mix models?</summary>
+        <div class="a"><p>Most models start at 300–1,000 pcs. For container orders you can freely mix models across all nine categories to reach a 20-foot or 40-foot container.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you provide OEM / ODM and private label service?</summary>
+        <div class="a"><p>Yes. Logo printing, custom colour and packaging design are handled in-house, and packaging artwork is provided free of charge for confirmed orders.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How fast can you ship?</summary>
+        <div class="a"><p>Standard lead time is 20–35 days after deposit and artwork confirmation. Samples go out in 3–7 working days.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Tell us what you need — get a quote within 12 working hours</h2>
+    <p>Send the models, quantity and target price. We will come back with a full quotation, packing data and shipping estimate, no obligation.</p>
+    <a class="btn btn-light" onclick="go('contact')">Request a Quote</a>
+    <a class="btn btn-outline" style="border-color:rgba(255,255,255,.5);color:#fff;background:transparent" onclick="go('products')">Browse Products</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= PRODUCTS ================= -->
+<main id="page-products" class="hide">
+  <section class="page-head" style="background:var(--bg-soft);border-bottom:1px solid var(--line);padding:40px 0">
+    <div class="wrap">
+      <div class="crumb" style="font-size:.83rem;color:var(--muted);margin-bottom:10px"><a onclick="go('home')" style="cursor:pointer">Home</a> / <span id="crumb-cat">Products</span></div>
+      <h1 id="prod-title" style="font-size:2rem;margin-bottom:6px">All Products</h1>
+      <p id="prod-desc" style="color:var(--muted);max-width:640px;margin:0">Explore our complete catalog. Every product supports OEM and ODM customization.</p>
+    </div>
+  </section>
+  <section style="padding:56px 0">
+    <div class="wrap">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px" id="filter-bar"></div>
+      <p style="color:var(--muted);font-size:.9rem;margin-bottom:20px">Showing <b id="prod-count" style="color:var(--ink)">16</b> products</p>
+      <div class="pgrid" id="prod-grid"></div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= CONTACT ================= -->
+<main id="page-contact" class="hide">
+  <section class="page-head" style="background:var(--bg-soft);border-bottom:1px solid var(--line);padding:40px 0">
+    <div class="wrap">
+      <div class="crumb" style="font-size:.83rem;color:var(--muted);margin-bottom:10px"><a onclick="go('home')" style="cursor:pointer">Home</a> / <span>Contact</span></div>
+      <h1 style="font-size:2rem;margin-bottom:6px">Contact Us</h1>
+      <p style="color:var(--muted);max-width:640px;margin:0">We reply to every inquiry within 12 working hours. Tell us your product, quantity and target market.</p>
+    </div>
+  </section>
+  <section style="padding:56px 0">
+    <div class="wrap" style="display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start">
+      <div>
+        <h2 style="font-size:1.3rem;margin-bottom:22px">Get In Touch</h2>
+        <div class="form-card" style="margin-bottom:14px"><div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--brand-2);margin-bottom:4px">Email</div><a href="mailto:vincent@eachbuydirect.com" style="font-weight:600;font-size:.95rem">vincent@eachbuydirect.com</a></div>
+        <div class="form-card" style="margin-bottom:14px"><div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--brand-2);margin-bottom:4px">WhatsApp</div><a href="https://wa.me/8613670113462" target="_blank" style="font-weight:600;font-size:.95rem">+8613670113462</a></div>
+        <div class="form-card" style="margin-bottom:14px"><div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--brand-2);margin-bottom:4px">OEM / ODM Process</div><div style="font-weight:600;font-size:.95rem">+86 13670113462</div></div>
+        <div class="form-card"><div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--brand-2);margin-bottom:4px">Company</div><div style="font-weight:600;font-size:.95rem">Shenzhen Eachbuy Technology Co., Ltd.</div><div style="font-size:.9rem;color:var(--muted);margin-top:4px">Shenzhen, Guangdong, China</div></div>
+      </div>
+      <div class="form-card">
+        <h2 style="font-size:1.2rem;margin-bottom:6px">Send an Inquiry</h2>
+        <p style="font-size:.9rem;color:var(--muted);margin-bottom:24px">Fill in the form and our sales team will get back to you shortly.</p>
+        <form onsubmit="submitForm(event)">
+          <div class="two">
+            <div class="field"><label>Name <span class="req">*</span></label><input required placeholder="John Smith"></div>
+            <div class="field"><label>Email <span class="req">*</span></label><input type="email" required placeholder="john@company.com"></div>
+          </div>
+          <div class="two">
+            <div class="field"><label>Company</label><input placeholder="Company Ltd."></div>
+            <div class="field"><label>Country</label><input placeholder="United States"></div>
+          </div>
+          <div class="field"><label>WhatsApp / Phone</label><input placeholder="+1 555 000 0000"></div>
+          <div class="field"><label>Message <span class="req">*</span></label><textarea required placeholder="Please tell us the product, quantity, target market and any customization requirements."></textarea></div>
+          <button type="submit" class="btn btn-primary btn-block">Send Inquiry</button>
+          <p style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:12px">Reply within 12 hours · Your information stays confidential</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="logo" style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+          <span class="logo-mark" style="width:38px;height:38px;border-radius:11px;display:grid;place-items:center"><span style="color:#fff;font-weight:800;font-size:14px">EB</span></span>
+          <span style="font-weight:800;color:#fff;font-size:1.1rem">EACHBUY<small style="display:block;font-size:.6rem;font-weight:600;letter-spacing:.1em;color:#7ba79e;text-transform:uppercase">Pest Control &amp; Home Comfort</small></span>
+        </div>
+        <p>Shenzhen Eachbuy Technology Co., Ltd. — a professional manufacturer and exporter of pest control, home comfort, storage and outdoor products.</p>
+        <div class="cert-list"><span>CE</span><span>RoHS</span><span>FCC</span><span>UKCA</span><span>ISO 9001</span></div>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul id="foot-cats"></ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a onclick="go('home');scrollTo2('why')">About Us</a></li>
+          <li><a onclick="go('home');scrollTo2('faq')">FAQ</a></li>
+          <li><a onclick="go('products')">All Products</a></li>
+          <li><a onclick="go('contact')">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:vincent@eachbuydirect.com">vincent@eachbuydirect.com</a></li>
+          <li><a href="https://wa.me/8613670113462" target="_blank">+8613670113462</a></li>
+          <li><span style="color:#9dbdb6;font-size:.9rem">+86 13670113462 (OEM/ODM)</span></li>
+          <li><span style="color:#9dbdb6;font-size:.9rem">Shenzhen, Guangdong, China</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="fbottom">
+    <div class="wrap" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <span>© 2025 Shenzhen Eachbuy Technology Co., Ltd. All rights reserved.</span>
+      <span>Manufacturer · Exporter · OEM / ODM Partner</span>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-content" id="modal-content"></div>
+  </div>
+</div>
+
+<script>
+const CATEGORIES=[
+  {slug:'mosquito-pest-control',name:'Mosquito & Pest Control',icon:'🦟',desc:'Indoor, outdoor and solar mosquito killer lamps, electric swatters, rodent repellers and pest control devices built for global markets.'},
+  {slug:'home-appliances',name:'Home Appliances',icon:'🌀',desc:'Humidifiers, fans and heaters with reliable motors, safety certification and customizable packaging for retail brands.'},
+  {slug:'storage-organization',name:'Storage & Organization',icon:'📦',desc:'PET storage boxes and Christmas tree storage bags — durable, stackable and ready for private label programs.'},
+  {slug:'garden-outdoor',name:'Garden & Outdoor',icon:'🌿',desc:'Expandable garden hoses and full accessory sets, engineered for burst pressure, UV resistance and long service life.'},
+  {slug:'lighting',name:'Lighting',icon:'💡',desc:'LED lighting and ambient decorative lights for home, patio and holiday use, with OEM color temperature and CCT options.'},
+  {slug:'pet-supplies',name:'Pet Supplies',icon:'🐕',desc:'Dog training devices and pet care electronics with CE and FCC compliant wireless modules.'}
+];
+
+const PRODUCTS=[
+  {slug:'indoor-mosquito-killer-lamp',cat:'mosquito-pest-control',name:'Indoor Mosquito Killer Lamp',model:'EB-MK100',hot:true,desc:'UV-A attraction with 360° coverage, whisper-quiet operation, ideal for bedrooms, kitchens and restaurants.',moq:'1,000 pcs',lead:'25–35 days',certs:['CE','RoHS','FCC'],features:['365nm UV-A light attracts mosquitoes effectively','Physical glue board or electric grid options','Noise level under 25 dB — safe for bedrooms','USB-C powered, low consumption under 5W','Removable tray for easy cleaning'],specs:[['Power','5W'],['Voltage','DC 5V / USB-C'],['Coverage','40–60 m²'],['Certification','CE, RoHS, FCC']]},
+  {slug:'outdoor-mosquito-killer',cat:'mosquito-pest-control',name:'Outdoor Mosquito Killer',model:'EB-MK200',hot:true,desc:'IPX4 weatherproof housing with high-voltage grid, designed for patio, garden and camping use.',moq:'1,000 pcs',lead:'25–35 days',certs:['CE','RoHS'],features:['IPX4 waterproof housing for outdoor use','High-voltage grid with safety protection','UV-A lamp life up to 8,000 hours','Detachable collection tray'],specs:[['Power','8W'],['Voltage','AC 100–240V'],['IP Rating','IPX4'],['Coverage','80–120 m²']]},
+  {slug:'solar-mosquito-killer',cat:'mosquito-pest-control',name:'Solar Mosquito Killer Lamp',model:'EB-MK300S',hot:true,desc:'Solar charging with built-in lithium battery, zero wiring needed — perfect for gardens and remote areas.',moq:'1,000 pcs',lead:'30–40 days',certs:['CE','RoHS'],features:['Monocrystalline solar panel','Built-in 2000mAh lithium battery','Auto dusk-to-dawn sensor','IP65 waterproof'],specs:[['Solar Panel','5V / 1.5W'],['Battery','3.7V / 2000mAh'],['IP Rating','IP65']]},
+  {slug:'electric-mosquito-swatter',cat:'mosquito-pest-control',name:'Electric Mosquito Swatter',model:'EB-MS500',desc:'3000V instant-kill mesh with detachable rechargeable handle and built-in LED light.',moq:'2,000 pcs',lead:'25–35 days',certs:['CE','RoHS','FCC'],features:['3000V high-voltage instant kill','Rechargeable lithium battery','Built-in LED for night use','Child safety switch'],specs:[['Voltage','3000V'],['Battery','1200mAh'],['Charging','USB-C']]},
+  {slug:'rodent-repeller',cat:'mosquito-pest-control',name:'Ultrasonic Rodent Repeller',model:'EB-RP800',desc:'Dual ultrasonic + electromagnetic technology, covers up to 200 m², silent to humans and pets.',moq:'2,000 pcs',lead:'25–35 days',certs:['CE','RoHS','FCC'],features:['Dual ultrasonic and electromagnetic waves','Coverage up to 200 m²','3 adjustable frequency modes','Pet-safe'],specs:[['Power','3W'],['Frequency','20–65 KHz'],['Coverage','160–200 m²']]},
+  {slug:'ultrasonic-humidifier',cat:'home-appliances',name:'Ultrasonic Humidifier',model:'EB-HM1000',hot:true,desc:'2.5L ultrasonic humidifier with 360° mist nozzle, night light and auto shut-off.',moq:'1,000 pcs',lead:'30–40 days',certs:['CE','RoHS','ETL'],features:['2.5L tank, up to 30 hours runtime','360° adjustable mist nozzle','7-color optional night light','Auto shut-off'],specs:[['Capacity','2.5L'],['Power','25W'],['Mist Output','250 ml/h']]},
+  {slug:'tower-fan',cat:'home-appliances',name:'DC Tower Fan',model:'EB-TF2000',desc:'Bladeless tower fan with DC motor, 12 speeds, sleep mode and remote control.',moq:'1,000 pcs',lead:'30–40 days',certs:['CE','RoHS','ETL'],features:['Energy-efficient DC motor','12 speed settings and 3 modes','0.5–7.5h timer','Oscillation up to 90°'],specs:[['Power','45W'],['Airflow','1,200 m³/h'],['Noise','< 45 dB']]},
+  {slug:'ceramic-heater',cat:'home-appliances',name:'PTC Ceramic Fan Heater',model:'EB-HT3000',desc:'Fast-heating PTC ceramic element with tip-over and overheat protection, 2 heat settings.',moq:'1,000 pcs',lead:'30–40 days',certs:['CE','RoHS','ETL'],features:['PTC ceramic heating, 3s fast warm-up','2 heat settings: 1000W / 1500W','Tip-over and overheat auto shut-off','Cool-touch housing'],specs:[['Power','1000W / 1500W'],['Heating','PTC Ceramic'],['Coverage','20–25 m²']]},
+  {slug:'pet-storage-box',cat:'storage-organization',name:'PET Clear Storage Box',model:'EB-PB10',desc:'Food-grade PET storage box with stackable design and clear visibility, available in 5 sizes.',moq:'3,000 pcs',lead:'25–35 days',certs:['FDA','LFGB'],features:['Food-grade PET material','Stackable design','Clear body','5 sizes from 3L to 30L'],specs:[['Material','PET'],['Capacity','3L / 8L / 15L / 22L / 30L'],['Certification','FDA, LFGB']]},
+  {slug:'christmas-tree-storage-bag',cat:'storage-organization',name:'Christmas Tree Storage Bag',model:'EB-CB20',desc:'Heavy-duty 600D Oxford storage bag fits trees up to 9 ft, with reinforced handles and dual zippers.',moq:'2,000 pcs',lead:'25–35 days',certs:['REACH'],features:['Fits trees up to 9 ft','600D Oxford fabric','Reinforced handles','Extra pocket for ornaments'],specs:[['Material','600D Oxford'],['Size','125 × 40 × 50 cm']]},
+  {slug:'expandable-garden-hose',cat:'garden-outdoor',name:'Expandable Garden Hose',model:'EB-GH50',hot:true,desc:'Triple-layer latex core with 3750D polyester cover, expands 3x and never kinks.',moq:'1,000 pcs',lead:'30–40 days',certs:['CE','RoHS'],features:['Expands up to 3x length','Triple-layer latex core','3750D polyester cover','Solid brass fittings'],specs:[['Burst Pressure','600 PSI'],['Fittings','Solid Brass 3/4"']]},
+  {slug:'garden-hose-accessories',cat:'garden-outdoor',name:'Garden Hose Accessory Set',model:'EB-GH-KIT',desc:'9-in-1 spray nozzle and connector kit, compatible with all standard 3/4" fittings.',moq:'2,000 sets',lead:'25–35 days',certs:['CE','RoHS'],features:['9-pattern spray nozzle','Brass quick connectors','Universal 3/4" compatibility','Storage bag included'],specs:[['Material','ABS + Brass'],['Patterns','9 spray modes']]},
+  {slug:'led-work-light',cat:'lighting',name:'Portable LED Work Light',model:'EB-LED500',desc:'5000lm rechargeable LED work light with IP65 rating and magnetic base.',moq:'1,000 pcs',lead:'30–40 days',certs:['CE','RoHS','FCC'],features:['5000 lumens, 3 brightness modes','Rechargeable 10000mAh battery','IP65 dust and water resistant','Magnetic base'],specs:[['Luminous Flux','5000 lm'],['Battery','10000mAh'],['IP Rating','IP65']]},
+  {slug:'ambient-decorative-light',cat:'lighting',name:'Smart Ambient Decorative Light',model:'EB-AL300',desc:'RGBIC ambient light with app and voice control, music sync and scene presets.',moq:'2,000 pcs',lead:'25–35 days',certs:['CE','RoHS','FCC'],features:['RGBIC multi-color segments','App + Alexa / Google compatible','Music sync','18 scene presets'],specs:[['LED','RGBIC 5050'],['Control','App / Voice / Remote']]},
+  {slug:'dog-training-collar',cat:'pet-supplies',name:'Rechargeable Dog Training Collar',model:'EB-DT600',hot:true,desc:'300m remote range with 3 training modes, IPX7 waterproof receiver, safe for dogs 5–50 kg.',moq:'1,000 pcs',lead:'30–40 days',certs:['CE','RoHS','FCC'],features:['300m remote range','3 modes: beep, vibration, static','IPX7 waterproof receiver','Rechargeable, 15-day standby'],specs:[['Range','300 m'],['Waterproof','IPX7'],['Battery','300mAh']]}
+];
+
+function renderCategories(){
+  document.getElementById('cat-grid').innerHTML=CATEGORIES.map(c=>`
+    <div class="cat-tile" onclick="go('products','${c.slug}')">
+      <div class="ico">${c.icon}</div>
+      <div><h3>${c.name}</h3><p>${c.desc}</p></div>
+      <span class="go">View →</span>
+    </div>`).join('');
+}
+
+function productCardHTML(p){
+  return `<div class="pcard" onclick="openModal('${p.slug}')">
+    <div class="thumb">${p.hot?'<span class="badge-hot">HOT</span>':''}<div class="ph">${p.name}</div></div>
+    <div class="body">
+      <div class="model">${p.model}</div>
+      <h3>${p.name}</h3>
+      <p class="desc">${p.desc}</p>
+      <div class="meta">${p.certs.slice(0,3).map(c=>`<span class="chip">${c}</span>`).join('')}</div>
+      <div class="row" style="display:flex;gap:8px">
+        <button class="btn btn-primary btn-sm" style="flex:1" onclick="event.stopPropagation();go('contact')">Inquiry</button>
+        <button class="btn btn-outline btn-sm" style="flex:1" onclick="event.stopPropagation();openModal('${p.slug}')">Details</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderFeatured(){
+  document.getElementById('feat-grid').innerHTML=PRODUCTS.filter(p=>p.hot).map(productCardHTML).join('');
+}
+
+function renderFooterCats(){
+  document.getElementById('foot-cats').innerHTML=CATEGORIES.map(c=>`<li><a onclick="go('products','${c.slug}')">${c.name}</a></li>`).join('');
+}
+
+function renderFilterBar(active){
+  const bar=document.getElementById('filter-bar');
+  bar.innerHTML=`<button class="btn btn-sm ${!active?'btn-primary':'btn-outline'}" onclick="go('products')">All</button>`+
+    CATEGORIES.map(c=>`<button class="btn btn-sm ${active===c.slug?'btn-primary':'btn-outline'}" onclick="go('products','${c.slug}')">${c.name}</button>`).join('');
+}
+
+function renderProductsPage(catSlug){
+  const list=catSlug?PRODUCTS.filter(p=>p.cat===catSlug):PRODUCTS;
+  const cat=catSlug?CATEGORIES.find(c=>c.slug===catSlug):null;
+  document.getElementById('prod-title').textContent=cat?cat.name:'All Products';
+  document.getElementById('prod-desc').textContent=cat?cat.desc:'Explore our complete catalog. Every product supports OEM and ODM customization.';
+  document.getElementById('crumb-cat').textContent=cat?cat.name:'Products';
+  document.getElementById('prod-count').textContent=list.length;
+  document.getElementById('prod-grid').innerHTML=list.map(productCardHTML).join('');
+  renderFilterBar(catSlug);
+}
+
+function go(page,catSlug){
+  ['home','products','contact'].forEach(p=>document.getElementById('page-'+p).classList.add('hide'));
+  document.getElementById('page-'+page).classList.remove('hide');
+  ['home','products','contact'].forEach(p=>{const el=document.getElementById('nav-'+p);if(el)el.classList.toggle('active',p===page)});
+  window.scrollTo(0,0);
+  if(page==='products')renderProductsPage(catSlug);
+}
+
+function scrollTo2(id){
+  go('home');
+  setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'})},50);
+}
+
+function toggleMenu(){
+  document.getElementById('mm').classList.toggle('open');
+}
+
+function openModal(slug){
+  const p=PRODUCTS.find(x=>x.slug===slug);
+  if(!p)return;
+  document.getElementById('modal-content').innerHTML=`
+    <div class="detail">
+      <div class="gallery"><div class="main-ph">${p.name}</div></div>
+      <div>
+        <div class="d-head">
+          <div class="model">${p.model}</div>
+          <h2>${p.name}</h2>
+          <p class="desc">${p.desc}</p>
+          <div class="kv">
+            <div><span>MOQ</span><b>${p.moq}</b></div>
+            <div><span>Lead Time</span><b>${p.lead}</b></div>
+            <div style="grid-column:1/-1"><span>Certification</span><b>${p.certs.join(', ')}</b></div>
+          </div>
+        </div>
+        <h3 style="font-size:.95rem;margin-bottom:10px">Key Features</h3>
+        <ul class="feat-list">${p.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+        <h3 style="font-size:.95rem;margin:20px 0 10px">Specifications</h3>
+        <table class="spec-table">${p.specs.map(s=>`<tr><td>${s[0]}</td><td>${s[1]}</td></tr>`).join('')}</table>
+        <div class="d-actions">
+          <a class="btn btn-primary" onclick="closeModal();go('contact')">Get a Quote</a>
+          <a class="btn btn-outline" href="https://wa.me/8613670113462" target="_blank">WhatsApp Us</a>
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(){
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function submitForm(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('button[type=submit]');
+  btn.textContent='Sending...';btn.disabled=true;
+  setTimeout(()=>{
+    e.target.innerHTML='<div style="text-align:center;padding:40px 20px"><div style="width:56px;height:56px;background:var(--brand-soft);color:var(--brand);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 16px">✓</div><h3 style="font-size:18px;margin-bottom:8px">Inquiry Sent</h3><p style="color:var(--muted);font-size:14px">Thank you. Our sales team will reply within 12 working hours.</p><p style="color:var(--muted);font-size:12px;margin-top:16px">(Preview only — form will be connected after deployment)</p></div>';
+  },700);
+}
+
+renderCategories();
+renderFeatured();
+renderFooterCats();
+go('home');
+</script>
+</body>
+</html>
