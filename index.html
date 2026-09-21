@@ -576,7 +576,7 @@ function productCardHTML(p){
 }
 
 function renderFeatured(){
-  document.getElementById('feat-grid').innerHTML=PRODUCTS.filter(p=>p.hot).map(productCardHTML).join('');
+  document.getElementById('feat-grid').innerHTML=PRODUCTS.map(productCardHTML).join('');
 }
 
 function renderFooterCats(){
