@@ -192,6 +192,10 @@ footer.site .logo-mark{background:linear-gradient(135deg,var(--brand-2),#4ade80)
 .detail{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
 .gallery{background:linear-gradient(160deg,#f2f8f6,#e6f1ed);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:grid;place-items:center}
 .gallery .main-ph{aspect-ratio:1;width:100%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--brand);font-size:1.2rem;text-align:center}
+.gallery .thumbs{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:12px;width:100%}
+.gallery .thumbs img{aspect-ratio:1;object-fit:contain;border-radius:8px;border:1px solid var(--line);cursor:pointer;padding:4px;background:#fff;transition:.2s}
+.gallery .thumbs img:hover{border-color:var(--brand);transform:scale(1.05)}
+.gallery .thumbs img.active{border-color:var(--brand);border-width:2px}  
 .d-head .model{font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--brand-2);text-transform:uppercase}
 .d-head h2{font-size:1.6rem;margin:.3em 0 .5em}
 .d-head .desc{color:var(--body);font-size:1rem}
@@ -1955,9 +1959,14 @@ function toggleMenu(){
 function openModal(slug){
   const p=PRODUCTS.find(x=>x.slug===slug);
   if(!p)return;
+  const mainImg=p.imgs?p.imgs[0]:'';
+  const thumbs=p.imgs&&p.imgs.length>1?`<div class="thumbs" id="modal-thumbs">${p.imgs.map((img,i)=>`<img src="${img}" onclick="switchModalImage('${img}',this)" class="${i===0?'active':''}" alt="">`).join('')}</div>`:'';
   document.getElementById('modal-content').innerHTML=`
     <div class="detail">
-      <div class="gallery">${p.imgs?'<img src="'+p.imgs[0]+'" alt="'+p.name+'" style="width:100%;border-radius:12px;object-fit:contain">':'<div class="main-ph">'+p.name+'</div>'}</div>
+      <div class="gallery">
+        ${p.imgs?'<img id="modal-main-img" src="'+mainImg+'" alt="'+p.name+'" style="width:100%;border-radius:12px;object-fit:contain">':'<div class="main-ph">'+p.name+'</div>'}
+        ${thumbs}
+      </div>
       <div>
         <div class="d-head">
           <div class="model">${p.model}</div>
@@ -1981,6 +1990,12 @@ function openModal(slug){
     </div>`;
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
+}
+
+function switchModalImage(src, el){
+  document.getElementById('modal-main-img').src=src;
+  document.querySelectorAll('#modal-thumbs img').forEach(i=>i.classList.remove('active'));
+  el.classList.add('active');
 }
 
 function closeModal(){
