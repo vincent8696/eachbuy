@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Eachbuy | Mosquito Killer Lamp & Pest Control Manufacturer | OEM / ODM</title>
 <meta name="description" content="Shenzhen Eachbuy Technology Co., Ltd. — manufacturer of mosquito killer lamps, humidifiers, garden hoses and LED lighting. CE RoHS FCC certified. OEM / ODM welcome.">
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W4LZ2N9D65"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W4LZ2N9D65');
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1938,6 +1947,12 @@ function go(page,catSlug){
   window.scrollTo(0,0);
   if(page==='products')renderProductsPage(catSlug);
   if(page==='blog')renderBlog();
+  if(typeof gtag === 'function'){
+    gtag('event','page_view',{
+      page_title:page,
+      page_location:window.location.origin+'/'+page
+    });
+  }
 }
 
 function scrollTo2(id){
